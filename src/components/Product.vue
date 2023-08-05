@@ -1,5 +1,9 @@
 <script setup>
 const props = defineProps({
+  id: {
+    type: String,
+    required: false
+  },
   img: {
     type: String,
     required: true
@@ -18,10 +22,10 @@ const props = defineProps({
 
 <template>
   <div class="product">
-    <router-link to="/">
+    <router-link :to="`products/${id}`">
       <img :src="img" :alt="title" class="product-image">
     </router-link>
-    <router-link to="/" class="product-name">{{ title }}</router-link>
+    <router-link :to="`products/${id}`" class="product-name">{{ title }}</router-link>
     <span class="product-price"> £{{ price }}</span>
   </div>
 </template>
@@ -44,11 +48,13 @@ const props = defineProps({
     @media (max-width: 768px) {
       font-size: 16px;
     }
-    &:hover{
+
+    &:hover {
       text-decoration: underline;
     }
   }
-  &-price{
+
+  &-price {
     font-size: 18px;
     @media (max-width: 768px) {
       font-size: 16px;

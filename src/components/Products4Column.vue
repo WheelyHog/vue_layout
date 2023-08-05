@@ -16,7 +16,7 @@ const props = defineProps({
 
     <div class="products">
       <Product v-for="product of products" :key="product.id" :img="product.img" :title="product.title"
-               :price="product.price"/>
+               :price="product.price" :id="product.id"/>
     </div>
     <div class="products-link">
       <UIButton color="lightgray" type="link" to="/">View Collection</UIButton>
