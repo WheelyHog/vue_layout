@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
+
+:root {
+  --play: 'Play', sans-serif;
+  --primary: #2a254b;
+  --gray: #726e8d;
+  --lightgray: #5b5676;
+  --border-grey: #ebe8f4;
+  --border-dark: #cac6da;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--play);
+  color: var(--primary);
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  max-width: 1440px;
+  margin: auto;
+}
+
+.input-text {
+  height: 56px;
+  padding: 0 32px;
+  font-size: 16px;
+  border: none;
+  @media (max-width: 768px){
+    padding: 0 10px;
+  }
+}
