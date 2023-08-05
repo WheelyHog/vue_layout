@@ -3,37 +3,17 @@ import Product from "@/components/Product.vue";
 import {ref} from "vue";
 import UIButton from "@/components/UI/Button.vue";
 
-const products = ref([
-  {
-    id: 1,
-    img: '/img/product1.png',
-    title: 'The Dandy chair',
-    price: 250
-  },
-  {
-    id: 2,
-    img: '/img/product2.png',
-    title: 'Rustic Vase Set',
-    price: 155
-  },
-  {
-    id: 3,
-    img: '/img/product3.png',
-    title: 'The Silky Vase',
-    price: 125
-  },
-  {
-    id: 4,
-    img: '/img/product4.png',
-    title: 'The Lucy Lamp',
-    price: 399
-  },
+const props = defineProps({
+  products:{
+    required: true,
+  }
+})
 
-])
 </script>
 
 <template>
   <div class="products-container">
+
     <div class="products">
       <Product v-for="product of products" :key="product.id" :img="product.img" :title="product.title"
                :price="product.price"/>
@@ -42,7 +22,6 @@ const products = ref([
       <UIButton color="lightgray" type="link" to="/">View Collection</UIButton>
     </div>
 
-    <!--    <a href="#" class="products-link">View collection</a>-->
   </div>
 
 

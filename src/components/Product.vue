@@ -31,6 +31,7 @@ const props = defineProps({
   &-image {
     display: block;
     margin-bottom: 24px;
+    object-fit: cover;
   }
 
   &-name {

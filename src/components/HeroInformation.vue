@@ -45,7 +45,7 @@ const props = defineProps({
       <span class="hero-info__description" :style="{color: colorDescription}">{{ description }}</span>
     </div>
     <UIButton :color="colorLink || 'secondary'" type="link" to="/" :mobileFullWidth:="true">View Collection</UIButton>
-    <img src="/img/hero.png" alt="" class="hero-info--image">
+<!--    <img src="/img/hero.png" alt="" class="hero-info&#45;&#45;image">-->
   </div>
 
 </template>
