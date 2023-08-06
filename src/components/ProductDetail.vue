@@ -1,8 +1,10 @@
 <script setup>
 import {ref} from "vue";
 import Button from "@/components/UI/Button.vue";
+import {useCartStore} from "@/store/cart.js";
 
 const quantity = ref(1);
+const cartStore = useCartStore()
 
 const props = defineProps({
   product: {
@@ -21,6 +23,7 @@ const changeQuantity=(type)=>{
     quantity.value===3 ? quantity.value = 3 : quantity.value++
   }
 }
+
 </script>
 
 <template>
@@ -48,7 +51,7 @@ const changeQuantity=(type)=>{
           <span class="product-quantity-symbol" @click="changeQuantity('plus')">+</span>
         </div>
       </div>
-      <Button>Add to Cart</Button>
+      <Button @click="cartStore.addToCart(product, quantity)">Add to Cart</Button>
     </div>
   </div>
 </template>
@@ -61,6 +64,7 @@ const changeQuantity=(type)=>{
   align-items: center;
   grid-template-columns: 1fr 500px;
   column-gap: 65px;
+  margin-bottom: 65px;
 
   &-name {
     margin: 0 0 16px 0;

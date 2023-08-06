@@ -15,6 +15,7 @@
         <div class="header-top-right__cart">
           <router-link to="/cart">
             <img src="/svg/cart.svg" alt="cart">
+            <span class="header-top-right-count" v-if="cartStore.cart.length>0">{{ cartStore.cart.length }}</span>
           </router-link>
         </div>
         <div class="header-top-right__user">
@@ -31,9 +32,9 @@
     </div>
 
     <div class="header-menu-mobile" v-if="isopenedMobileMenu">
-<!--      <div class="header-menu-mobile-top">-->
-<!--        <img src="/svg/mob-menu.svg" alt="menu">-->
-<!--      </div>-->
+      <!--      <div class="header-menu-mobile-top">-->
+      <!--        <img src="/svg/mob-menu.svg" alt="menu">-->
+      <!--      </div>-->
       <router-link :to="element.path" v-for="(element, index) of menu" :key="index"
                    class="header-menu-mobile-link">{{ element.name }}
       </router-link>
@@ -101,6 +102,26 @@
       @media (max-width: 768px) {
         display: none;
       }
+
+      &__cart {
+        position: relative;
+      }
+
+      &-count {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        background: #4E4D93;
+        border-radius: 50%;
+        color: #ffffff;
+        font-size: 10px;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        right: -8px;
+        bottom: 0;
+      }
     }
   }
 
@@ -166,6 +187,10 @@
 
 <script setup>
 import {ref} from "vue";
+import {useCartStore} from "@/store/cart.js";
+
+const cartStore = useCartStore()
+console.log(cartStore.cart.length)
 
 const menu = [
   {
