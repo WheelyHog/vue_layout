@@ -5,8 +5,9 @@ import path from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
+  base: '/vue_layout/',
   resolve: {
-    alias:{
+    alias: {
       '@': path.resolve(__dirname, 'src'),
     }
   }
